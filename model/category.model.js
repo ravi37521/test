@@ -4,14 +4,14 @@ import mongoose from 'mongoose';
 
 const CategorySchema = mongoose.Schema({
   _id: Number,
-  catname: {
+  catName: {
     type: String,
     unique: true,
     required: [true,"Category is required"],
     lowercase: true,
     trim: true,
   },
-  caticonname: {
+  catIconName: {
     type: String,
     required: [true,"Category icon is required"],
     trim: true

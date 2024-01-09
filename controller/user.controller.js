@@ -11,7 +11,7 @@ export var save=async(req,res,next)=>{
  var l=userList.length;
  var _id=l==0?1:userList[l-1]._id+1;
  userDetails={...userDetails,"_id":_id,"status":0,"role":"user","info":Date()};
-    console.log(userDetails);
+   // console.log(userDetails);
 var user = await UserSchemaModel.create(userDetails);
 if(user)
   return res.status(201).json({"msg":"success"});

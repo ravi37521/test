@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 const UserSchema = mongoose.Schema({
   _id: Number,
-  studentname: {
+  studentName: {
     type: String,
     required: [true,"Name is required"],
     lowercase: true,
@@ -34,6 +34,6 @@ const UserSchema = mongoose.Schema({
   info: String
     });
   // compile schema to model
-const UserSchemaModel = mongoose.model('user_collection',UserSchema);
+const UserSchemaModel = mongoose.model('student_collection',UserSchema);
 
 export default UserSchemaModel

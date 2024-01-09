@@ -34,6 +34,6 @@ const UserSchema = mongoose.Schema({
   info: String
     });
   // compile schema to model
-const UserSchemaModel = mongoose.model('user_collection',UserSchema);
+const UserSchemaModel = mongoose.model('teacher_collection',UserSchema);
 
 export default UserSchemaModel

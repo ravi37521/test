@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 const UserSchema = mongoose.Schema({
   _id: Number,
-  classname: {
+  className: {
     type: String,
     required: [true,"Name is required"],
     lowercase: true,
@@ -12,10 +12,10 @@ const UserSchema = mongoose.Schema({
   },
  
    role: String,
-  status: Number,
-  info: String
+   status: Number,
+   info: String
     });
   // compile schema to model
-const UserSchemaModel = mongoose.model('user_collection',UserSchema);
+const ClassSchemaModel = mongoose.model('class_collection',UserSchema);
 
 export default UserSchemaModel
