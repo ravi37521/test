@@ -2,7 +2,8 @@
 import mongoose from 'mongoose';
 //import uniqueValidator from 'mongoose-unique-validator';
 
-const UserSchema = mongoose.Schema({
+const TeacherSchema = mongoose.Schema({
+//const StudentSchema = mongoose.Schema({
   _id: Number,
   studentName: {
     type: String,
@@ -34,6 +35,6 @@ const UserSchema = mongoose.Schema({
   info: String
     });
   // compile schema to model
-const UserSchemaModel = mongoose.model('student_collection',UserSchema);
+const StudentSchemaModel = mongoose.model('student_collection',StudentSchema);
 
-export default UserSchemaModel
+export default StudentSchemaModel

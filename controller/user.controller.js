@@ -3,7 +3,7 @@
  import url from 'url';
 
 //to link schema model
-import UserSchemaModel from '../model/class.model.js';
+import UserSchemaModel from '../model/user.model.js';
 
 export var save=async(req,res,next)=>{
  var userDetails=req.body;
