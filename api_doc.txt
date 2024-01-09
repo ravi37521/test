@@ -1,0 +1,7 @@
+API Doc :-
+
+User management API :- 
+
+-> To insert record
+
+
