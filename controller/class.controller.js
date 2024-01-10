@@ -6,13 +6,13 @@ import url from 'url';
 import ClassSchemaModel from '../model/class.model.js';
 
 export var save=async(req,res,next)=>{
-var userDetails=req.body;
+var classDetails=req.body;
 var classList = await ClassSchemaModel.find();
-//var l=userList.length;
-// var _id=l==0?1:userList[l-1]._id+1;
-userDetails={...userDetails,"_id":_id,"status":0,"role":"user","info":Date()};
-  console.log(userDetails);
-// var user = await ClassSchemaModel.create(userDetails);
+var l=classList.length;
+var _id=l==0?1:userList[l-1]._id+1;
+classDetails={...classDetails,"_id":_id,"status":0,"role":"user","info":Date()};
+  console.log(classDetails);
+// var user = await ClassSchemaModel.create(classDetails);
 // if(user)
 //  return res.status(201).json({"msg":"success"});
 // else

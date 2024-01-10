@@ -2,7 +2,7 @@
 import mongoose from 'mongoose';
 //import uniqueValidator from 'mongoose-unique-validator';
 
-const TeacherSchema = mongoose.Schema({
+const StudentSchema = mongoose.Schema({
 //const StudentSchema = mongoose.Schema({
   _id: Number,
   studentName: {
