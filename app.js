@@ -11,6 +11,7 @@ var app = express();
 import teacherRouter from './routes/teacher.router.js';
 import studentRouter from './routes/student.router.js';
 import classRouter from './routes/class.router.js';
+
 //configuration to extract request body content
 app.use(bodyParser());
 
@@ -20,6 +21,6 @@ app.use(bodyParser());
  app.use("/user" ,classRouter);
  app.use("/user",teacherRouter);
  app.use("/user",studentRouter);
- 
+
 app.listen(3001);
 console.log("Server invoked at link http://localhost:3001");

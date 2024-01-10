@@ -8,8 +8,8 @@ import ClassSchemaModel from '../model/class.model.js';
 export var save=async(req,res,next)=>{
 var classDetails=req.body;
 var classList = await ClassSchemaModel.find();
-var l=classList.length;
-var _id=l==0?1:userList[l-1]._id+1;
+//var l=classList.length;
+//var _id=l==0?1:userList[l-1]._id+1;
 classDetails={...classDetails,"_id":_id,"status":0,"role":"user","info":Date()};
   console.log(classDetails);
 // var user = await ClassSchemaModel.create(classDetails);
