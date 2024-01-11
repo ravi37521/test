@@ -11,9 +11,9 @@ const ClassSchema = mongoose.Schema({
     trim: true,
   },
  
-   role: String,
-   status: Number,
-   info: String
+  //  role: String,
+  //  status: Number,
+  //  info: String
     });
   // compile schema to model
 const ClassSchemaModel = mongoose.model('class_collection',ClassSchema);

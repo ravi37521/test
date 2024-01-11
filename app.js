@@ -18,9 +18,9 @@ app.use(bodyParser());
 //middleware configuration to load api routes
 //app.use("/user",userRouter);
 //app.use("/category",categoryRouter);
- app.use("/user" ,classRouter);
- app.use("/user",teacherRouter);
- app.use("/user",studentRouter);
+ app.use("/class" ,classRouter);
+ app.use("/teacher",teacherRouter);
+ app.use("/student",studentRouter);
 
 app.listen(3001);
 console.log("Server invoked at link http://localhost:3001");
