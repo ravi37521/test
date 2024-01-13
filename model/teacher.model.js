@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 //import uniqueValidator from 'mongoose-unique-validator';
 
 const TeacherSchema = mongoose.Schema({
-  _id: Number,
+  //_id: Number,
   teacherName: {
     type: String,
     required: [true,"Name is required"],
@@ -12,7 +12,7 @@ const TeacherSchema = mongoose.Schema({
   },
   email: {
     type: String,
-    required: [true,"Username is required"],
+    required: [true,"email is required"],
     unique: true,
     lowercase: true,
     trim: true
@@ -29,9 +29,9 @@ const TeacherSchema = mongoose.Schema({
   //       required: [true,"Address is required"],
   //       trim: true
   //     },
-  role: String,
-  status: Number,
-  info: String
+  // role: String,
+  // status: Number,
+  // info: String
     });
   // compile schema to model
 const TeacherSchemaModel = mongoose.model('teacher_collection',TeacherSchema);

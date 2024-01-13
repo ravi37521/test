@@ -7,7 +7,7 @@ router.post("/save",classController.save);
 
 router.get("/fetch",classController.fetch);
 
-router.delete("/delete/:id",classController.deleteUser);
+router.delete("/delete/:id",classController.deleteUser); 
 
 router.patch("/update",classController.updateUser);
 

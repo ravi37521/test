@@ -3,37 +3,38 @@ import '../model/connection.js'
 import url from 'url';
 
 //to link schema model
-import UserSchemaModel from '../model/teacher.model.js';
+import TeacherSchemaModel from '../model/teacher.model.js'
 
-export var save=async(req,res,next)=>{
-var userDetails=req.body;
-var userList = await UserSchemaModel.find();
-var l=userList.length;
-var _id=l==0?1:userList[l-1]._id+1;
-userDetails={...userDetails,"_id":_id,"status":0,"role":"user","info":Date()};
-  // console.log(userDetails);
-var user = await UserSchemaModel.create(userDetails);
-if(user)
- return res.status(201).json({"msg":"success"});
+export var save=async(req,res,next)=>{ 
+var teacherDetails=req.body;
+// teacher name same
+var Teacher= await TeacherSchemaModel.findOne({email:teacherDetails.email.toLowerCase()});
+ if(Teacher)
+ return res.status(200).json({"error":"teacher  name already"});
+
+var teacher = await TeacherSchemaModel.create(teacherDetails);
+if(teacher)
+ return res.status(201).json({"msg":"success",teacher});   
 else
  return res.status(500).json({"error":"Server Error"});
+
 }
 
 export var fetch=async (req,res,next)=>{
  var condition_obj=url.parse(req.url,true).query;
- var userList = await UserSchemaModel.find(condition_obj);
- if(userList.length!=0)
+ var teacherList = await TeacherSchemaModel.find(condition_obj);
+ if(teacherList.length!=0)
  
-   return res.status(201).json(userList);
+   return res.status(201).json(teacherList);
  else
-   return res.status(500).json(userList);
+   return res.status(500).json(teacherList);
 }
 
 export var deleteUser=async(req,res,next)=>{
  var id = req.params.id;
- var user = await UserSchemaModel.find({_id: id});
- if(user.length!=0){
-   let result = await UserSchemaModel.deleteMany({_id:id}); 
+ var teacher = await TeacherSchemaModel.find({_id: id});
+ if(teacher.length!=0){
+   let result = await TeacherSchemaModel.deleteMany({_id:id}); 
    if(result)
     return res.status(201).json({"msg":"success"});
    else
@@ -44,13 +45,13 @@ export var deleteUser=async(req,res,next)=>{
 }
 
 export var updateUser=async(req,res,next)=>{
- let userDetails = await UserSchemaModel.findOne(JSON.parse
+ let teacherDetails = await TeacherSchemaModel.findOne(JSON.parse
    (req.body.condition_obj));   
  //console.log(userDetails);
- if(userDetails){
-    let user=await UserSchemaModel.updateOne(JSON.parse
+ if(teacherDetails){
+    let teacher=await TeacherSchemaModel.updateOne(JSON.parse
      (req.body.condition_obj),{$set: JSON.parse(req.body.content_obj)});   
-    if(user)
+    if(teacher)
      return res.status(201).json({"msg":"success"});
     else
      return res.status(500).json({error: "Server Error"});

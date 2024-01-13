@@ -7,14 +7,10 @@ import ClassSchemaModel from '../model/class.model.js';
 
 export var save=async(req,res,next)=>{
 var classDetails=req.body;
-var classList = await ClassSchemaModel.find();
-var l=classList.length;
-//var _id=l==0?1:userList[l-1]._id+1;
-classDetails={...classDetails,"_id":_id,"status":0,"role":"user","info":Date()};
-  //console.log(classDetails);
-var user = await ClassSchemaModel.create(classDetails);
-if(user)
- return res.status(201).json({"msg":"success"});
+
+var classResult = await ClassSchemaModel.create(classDetails);
+if(classResult)
+  return res.status(201).json({"msg":"success",classResult});
 else
  return res.status(500).json({"error":"Server Error"});
 }
@@ -31,10 +27,10 @@ export var fetch=async (req,res,next)=>{
 
 export var deleteUser=async(req,res,next)=>{
  var id = req.params.id;
- var user = await ClassSchemaModel.find({_id: id});
- if(user.length!=0){
-   let result = await ClassSchemaModel.deleteMany({_id:id}); 
-   if(result)
+ var classResult = await ClassSchemaModel.find({_id: id});
+ if(classResult.length!=0){
+   let classResult = await ClassSchemaModel.deleteMany({_id: id});   
+   if(classResult)
     return res.status(201).json({"msg":"success"});
    else
     return res.status(500).json({error: "Server Error"});
@@ -48,9 +44,9 @@ export var updateUser=async(req,res,next)=>{
    (req.body.condition_obj));   
  //console.log(userDetails);
  if(classDetails){
-    let user=await ClassSchemaModel.updateOne(JSON.parse
+    let classResult=await ClassSchemaModel.updateOne(JSON.parse
      (req.body.condition_obj),{$set: JSON.parse(req.body.content_obj)});   
-    if(user)
+    if(classResult)
      return res.status(201).json({"msg":"success"});
     else
      return res.status(500).json({error: "Server Error"});

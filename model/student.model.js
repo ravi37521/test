@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 const StudentSchema = mongoose.Schema({
 //const StudentSchema = mongoose.Schema({
-  _id: Number,
+  
   studentName: {
     type: String,
     required: [true,"Name is required"],
@@ -25,14 +25,7 @@ const StudentSchema = mongoose.Schema({
     minlength:5,
     trim: true
   },
-  // address: {
-  //       type: String,
-  //       required: [true,"Address is required"],
-  //       trim: true
-  //     },
-  role: String,
-  status: Number,
-  info: String
+  
     });
   // compile schema to model
 const StudentSchemaModel = mongoose.model('student_collection',StudentSchema);
